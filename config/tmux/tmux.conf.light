@@ -1,0 +1,33 @@
+# vim style keybindings
+# https://gist.github.com/tsl0922/d79fc1f8097dde660b34
+# cheatsheet: https://tmuxcheatsheet.com/
+
+# light
+set -g pane-border-style 'fg=#666666'
+set -g pane-active-border-style 'bg=default fg=#999999'
+set -g message-command-style 'fg=#000000,bg=#FFFFFF'
+set -g message-style 'fg=#000000,bg=#FFFFFF'
+set -g mode-style 'fg=#000000,bg=#FFFFFF'
+set -g status-style 'fg=#000000,bg=#666666'
+
+set -g history-limit 8096
+set -g status on
+set -g escape-time 0
+
+setw -g mode-keys vi
+
+# use vim-like keys for splits and windows
+bind-key v split-window -h
+bind-key s split-window -v
+bind -n C-k clear-history
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'wl-copy --primary'
+bind -T copy-mode-vi v send-keys -X begin-selection
+
+# use vim-like navigation for panes
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+set-option -g default-terminal screen
+set-option -ga terminal-overrides ",screen*:Tc:smcup@:rmcup@"
