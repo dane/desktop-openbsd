@@ -1,0 +1,53 @@
+[core]
+	editor = nvim
+	whitespace = trailing-space,space-before-tab
+
+[apply]
+	whitespace = fix
+
+[color]
+	interactive = true
+	status = true
+	branch = true
+	diff = true
+
+[alias]
+	st = status
+	cf = clean -f
+	ci = commit
+	co = checkout
+	a  = add
+	b  = branch
+	d  = diff
+	dc = diff --cached
+	ri = rebase -i HEAD~5
+	pr = pull --rebase
+	ps = pull --rebase --recurse-submodules
+	cp = cherry-pick
+
+[pager]
+	stash = false
+
+[merge]
+	tool = diff
+
+[http]
+	sslVerify = true
+
+[push]
+	default = simple
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	program = gpg
+
+[pull]
+	rebase = true
+
+[init]
+	defaultBranch = main
+
+[include]
+	path = ~/.local/git/config
