@@ -1,0 +1,5 @@
+setxkbmap -option caps:escape
+
+/usr/local/bin/picom &
+feh --bg-center /usr/local/share/wallpapers/current.jpg &
+exec /usr/X11R6/bin/cwm

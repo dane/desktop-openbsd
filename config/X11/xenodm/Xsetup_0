@@ -1,0 +1,11 @@
+#!/bin/sh
+# $OpenBSD: Xsetup_0.in,v 1.1 2021/08/30 15:38:27 matthieu Exp $
+
+
+prefix="/usr/X11R6"
+exec_prefix="${prefix}"
+BG_DST=/usr/local/share/wallpapers/current-blur.jpg
+
+xrandr --output default --dpi 96
+
+/usr/local/bin/feh --bg-center $BG_DST &

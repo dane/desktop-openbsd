@@ -1,0 +1,32 @@
+! $OpenBSD: Xresources
+!
+
+xroot.background: #333333
+
+xlogin.Login.namePrompt:
+xlogin.Login.passwdPrompt:
+xlogin.Login.greeting:
+xlogin.Login.titleMessage:
+
+xlogin.Login.background: #333333
+xlogin.Login.failColor: #EEEEEE
+
+xlogin.Login.width: 550
+xlogin.Login.height: 240
+
+xlogin.Login.echoPasswd: true
+xlogin.Login.allowRootLogin: false
+xlogin.Login.fail: Invalid username or password
+
+xlogin*borderWidth: 0
+xlogin.Login.frameWidth: 0
+xlogin.Login.innerFrameWidth: 0
+xlogin.Login.sepWidth: 0
+xlogin*logoPadding: 0
+xlogin*inpPadding: 10
+
+xlogin*face: Helvetica-18:dpi=96
+xlogin*Face: Helvetica-18:dpi=96
+xlogin*font: Helvetica:dpi=96
+
+xlogin*useShape: true
