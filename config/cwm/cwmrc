@@ -1,0 +1,38 @@
+unbind-key all
+unbind-mouse all
+
+borderwidth 0
+
+# System controls
+bind-key CM-Return /usr/local/bin/alacritty
+bind-key CM-q quit
+bind-key CM-r restart
+bind-key CM-l lock
+
+# Launchers
+bind-key M-space menu-cmd
+bind-key M-slash menu-slash
+
+gap 40 40 40 40
+
+fontname "Hack:size=28:antialias=true"
+color font '#FFFFFF'
+color selfont '#FFFFFF'
+color menubg '#333333'
+color menufg '#666666'
+
+# Window controls
+bind-key M-Tab window-cycle
+bind-key MS-Tab window-rcycle
+bind-key M-m window-fullscreen
+bind-key M-q window-close
+bind-key M-h window-hide
+
+bind-mouse M-1  window-move
+bind-mouse CM-1 window-resize
+bind-mouse 3 menu-window
+bind-mouse C-1 window-raise
+
+command Alacritty alacritty
+command Firefox "firefox --setDefaultBrowser"
+command Chromium "chrome --enable-unveil"
