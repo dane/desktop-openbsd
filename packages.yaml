@@ -1,0 +1,25 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Install packages
+      command: pkg_add {{ item }}
+      loop:
+        - vim-8.2.4600-no_x11-ruby
+        - neovim
+        - curl
+        - zsh
+        - ImageMagick
+        - alacritty
+        - firefox
+        - feh
+        - ghostwriter
+        - hack-fonts
+        - picom
+        - git
+        - doas
+        - go
+        - rust
+        - github-cli
+        - ruby-3.1.2
+        - ruby-shims
+
