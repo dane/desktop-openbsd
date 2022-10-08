@@ -1,0 +1,11 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create .zshenv
+      copy:
+        dest: "/home/{{ lookup('env', 'DOAS_USER') }}/.zshenv"
+        force: true
+        content: |
+          export ZDOTDIR=~/.config/zsh
+    - name: Set ZSH as default shell
+      command: "chsh -s /usr/local/bin/zsh {{ lookup('env', 'DOAS_USER') }}"
