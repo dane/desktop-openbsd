@@ -1,0 +1,18 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Disable services
+      command: rcctl disable {{ item }}
+      loop:
+        - smtpd
+        - sshd
+        - ftpd
+        - ftpproxy
+        - ftpproxy6
+        - httpd
+        - ldapd
+        - nfsd
+        - slowcgi
+        - spamd
+    - name: Enable xenodm
+      command: rcctl enable xenodm
