@@ -1,0 +1,34 @@
+" Plugins
+call plug#begin()
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'rust-lang/rust.vim'
+  Plug 'hashivim/vim-terraform'
+  Plug 'dane/minimal-dark.vim', { 'as': 'minimal-dark' }
+call plug#end()
+
+" Settings
+colorscheme minimal-dark
+filetype plugin on
+
+" Required for color scheme
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+set encoding=utf-8
+set foldmethod=indent
+set nofoldenable
+set number
+set ignorecase
+set hlsearch
+set textwidth=80
+set splitright
+set splitbelow
+set termguicolors
+set nowrap
+
+" Key mapping
+map <leader> ','
+map <Up> <Nop>
+map <Down> <Nop>
+map <Left> <Nop>
+map <Right> <Nop>
