@@ -1,12 +1,6 @@
 - hosts: localhost
   gather_facts: false
   tasks:
-    - name: Create .zshenv
-      copy:
-        dest: '~/.zshenv'
-        force: true
-        content: |
-          export ZDOTDIR={{ playbook_dir }}/config/zsh
     - name: Create config dir symlink
       file:
         src: '{{ playbook_dir }}/config'
