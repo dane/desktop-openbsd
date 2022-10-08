@@ -1,0 +1,75 @@
+- hosts: localhost
+  gather_facts: false
+  vars_prompt:
+    - name: username
+      prompt: What is your Git user.name?
+      private: no 
+    - name: email
+      prompt: What is your Git user.email?
+      private: no
+    - name: github_token
+      prompt: What is your GitHub CLI token?
+      private: yes
+    - name: ssh_passphrase
+      prompt: What is your SSH key passphrase?
+      private: yes
+    - name: gpg_passphrase
+      prompt: What is your GPG key passphrase?
+      private: yes
+  tasks:
+    - name: Generate SSH key
+      command: "ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N \"{{ ssh_passphrase }}\""
+      args:
+        creates: "$HOME/.ssh/id_ed25519"
+    - name: Record .local/git/config
+      shell: cat ~/.local/git/config
+      register: gitconfig
+    - name: Set Git user.name
+      command: git config -f ~/.local/git/config user.name "{{ username }}"
+      when: gitconfig.stdout.find("name = ") == 0 
+    - name: Set Git user.email
+      command: git config -f ~/.local/git/config user.email "{{ email }}"
+      when: gitconfig.stdout.find("email = ") == 0
+    - name: Generate GPG key
+      command: gpg --full-generate-key --batch
+      args:
+        creates: "$HOME/.gnupg"
+        stdin: |-
+          Key-Type: eddsa
+          Key-Curve: ed25519
+          Name-Real: {{ username }}
+          Name-Comment: Git commit signing
+          Name-Email: {{ email }}
+          Expire-Date: 0
+          Passphrase: {{ gpg_passphrase }}
+    - name: Get GPG key list
+      command: gpg --list-secret-keys --keyid-format=long --with-colons
+      register: gpg_key_list
+    - name: Select sec line
+      register: gpg_key_sec_line
+      command: grep 'sec:'
+      args:
+        stdin: "{{ gpg_key_list.stdout }}"
+    - name: Get GPG key sec value
+      register: gpg_key_sec_value
+      command: "awk -F: '{print $5}'"
+      args:
+        stdin: "{{ gpg_key_sec_line.stdout }}"
+    - name: GPG public key
+      register: gpg_public_key
+      command: "gpg --armor --export {{ gpg_key_sec_value.stdout }}"
+    - name: Set GPG key on git commits
+      command: git config -f ~/.local/git/config user.signingkey {{ gpg_key_sec_value.stdout }}
+    - name: Set Git commit.gpgsign
+      command: git config -f ~/.local/git/config commit.gpgsign true
+    - name: Login to GitHub
+      command: gh auth login --with-token --git-protocol ssh
+      args:
+        creates: "$HOME/.config/gh"
+        stdin: "{{ github_token }}"
+    - name: Upload GPG key to GitHub
+      command: gh gpg-key add -
+      args:
+        stdin: "{{ gpg_public_key.stdout }}"
+    - name: Upload SSH key to GitHub
+      command: gh ssh-key add ~/.ssh/id_ed25519.pub
