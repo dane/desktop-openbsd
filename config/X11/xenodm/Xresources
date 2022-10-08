@@ -25,8 +25,8 @@ xlogin.Login.sepWidth: 0
 xlogin*logoPadding: 0
 xlogin*inpPadding: 10
 
-xlogin*face: Helvetica-18:dpi=96
-xlogin*Face: Helvetica-18:dpi=96
-xlogin*font: Helvetica:dpi=96
+xlogin*face: Helvetica:size=14
+xlogin*Face: Helvetica:size=14
+xlogin*font: Helvetica:size=14
 
 xlogin*useShape: true
