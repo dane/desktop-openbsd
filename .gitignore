@@ -4,3 +4,4 @@ dconf
 config/chromium
 config/gh
 config/neofetch
+config/vim/plugged
