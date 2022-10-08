@@ -13,6 +13,10 @@ rc:
 	@echo "The following doas request will run the rc playbook"
 	@doas ansible-playbook rc.yaml
 
+shell:
+	@echo "The following doas request will run the shell playbook"
+	@doas ansible-playbook shell.yaml
+
 github:
 	@ansible-playbook github.yaml
 
@@ -20,5 +24,5 @@ homedir:
 	@ansible-playbook homedir.yaml
 
 privileged:
-	@echo "The following doas request will run playbooks cwm, packages, and rc"
-	@doas ansible-playbook packages.yaml cwm.yaml rc.yaml
+	@echo "The following doas request will run playbooks packages, shell, cwm, and rc"
+	@doas ansible-playbook packages.yaml shell.yaml cwm.yaml rc.yaml
