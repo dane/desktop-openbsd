@@ -1,17 +1,21 @@
 export XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_DIRS=~/.config:$XDG_CONFIG_DIRS
-
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
-
-export GOPATH=~/Projects
-export GO111MODULE=on
-
-export EDITOR=nvim
+export EDITOR=vim
 export KEYTIMEOUT=1
-
 export GPG_TTY=$(tty)
+export GO111MODULE=on
+export GOPATH=~/Projects
+
+path=(
+  $GOPATH/bin
+  $HOME/.local/bin
+  $path
+)
+
+cdpath=$GOPATH/src
 
 autoload -U compinit; compinit
 autoload edit-command-line
@@ -34,15 +38,8 @@ bindkey '^r' history-incremental-search-backward
 
 alias uuidgen='ruby -rsecurerandom -e "print SecureRandom.uuid"'
 
-path=(
-  $GOPATH/bin
-  $HOME/.local/bin
-  $path
-)
-
 zle -N edit-command-line
 prompt="%1~%%%  "
-cdpath=$GOPATH/src
 
 if [ -f ~/.local/zsh/zshrc ]; then
   source ~/.local/zsh/zshrc
