@@ -1,0 +1,41 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Configure Xresources
+      copy:
+        src: config/X11/xenodm/Xresources
+        dest: /etc/X11/xenodm/Xresources
+    - name: Configure Xsetup_0
+      copy:
+        src: config/X11/xenodm/Xsetup_0
+        dest: /etc/X11/xenodm/Xsetup_0
+    - name: Create xsession symlink
+      file:
+        src: "/home/{{ lookup('env', 'DOAS_USER') }}/.config/X11/xsession"
+        dest: "/home/{{ lookup('env', 'DOAS_USER') }}/.xsession"
+        state: link
+        force: true
+    - name: Create cwm symlink
+      file:
+        src: "/home/{{ lookup('env', 'DOAS_USER') }}/.config/cwm/cwmrc"
+        dest: "/home/{{ lookup('env', 'DOAS_USER') }}/.cwmrc"
+        state: link
+        force: true
+    - name: Fetch wallpapers
+      git:
+        repo: https://github.com/dane/wallpapers
+        dest: /usr/local/share/wallpapers
+        update: yes
+    - name: Select current wallpaper
+      file:
+        src: /usr/local/share/wallpapers/rei-2.jpg
+        dest: /usr/local/share/wallpapers/current.jpg
+        state: link
+    - name: Blur current wallpaper
+      command: |-
+        convert \
+          -scale 10% \
+          -blur 0x2.5 \
+          -resize 1000% \
+          /usr/local/share/wallpapers/current.jpg \
+          /usr/local/share/wallpapers/current-blur.jpg
