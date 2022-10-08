@@ -10,6 +10,7 @@
         - ImageMagick
         - alacritty
         - firefox
+        - chromium
         - feh
         - ghostwriter
         - hack-fonts
