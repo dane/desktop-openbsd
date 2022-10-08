@@ -36,3 +36,7 @@ bind-mouse C-1 window-raise
 command Alacritty alacritty
 command Firefox "firefox --setDefaultBrowser"
 command Chromium "chrome --enable-unveil"
+command 1Password "chrome --enable-unveil --app=https://start.1password.com/signin"
+command Discord "chrome --enable-unveil --app=https://discord.com/login"
+
+ignore "xclock"
