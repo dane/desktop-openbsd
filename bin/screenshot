@@ -1,6 +1,11 @@
 #!/bin/sh
 
 FILE_NAME=$1
+DEST=/tmp/screenshots
 
-mkdir -p /tmp/screenshots
+if [ ! -d $DEST ]; then
+  mkdir -p $DEST
+  chmod 0777 $DEST
+fi
+
 xwd -root -out /tmp/screenshots/$FILE_NAME.xwd
