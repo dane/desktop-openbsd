@@ -9,3 +9,9 @@
           export ZDOTDIR=~/.config/zsh
     - name: Set ZSH as default shell
       command: "chsh -s /usr/local/bin/zsh {{ lookup('env', 'DOAS_USER') }}"
+    - name: Add screenshot command
+      copy:
+        dest: /usr/local/bin/screenshot
+        src: bin/screenshot
+        force: true
+        mode: 0755
