@@ -1,6 +1,10 @@
 .PHONY: *
 all: privileged homedir github
 
+deps:
+	@echo "The following doas request will install ansible"
+	@doas pkg_add ansible
+
 packages:
 	@echo "The following doas request will run the packages playbook"
 	@doas ansible-playbook packages.yaml
