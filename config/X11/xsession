@@ -4,12 +4,13 @@ setxkbmap -option caps:escape
 
 feh --bg-center /usr/local/share/wallpapers/current.jpg &
 
+xclock -digital -twentyfour -update 60 -geometry +40+1225 -render -fg "#3A3A3C" \
+  -strftime "%H:%M" \
+  -face "Helvetica:size=42:weight=bold" &
+
 xclock -digital -twentyfour -update 3600 -geometry 250x35+40+1200 -render -fg "#3A3A3C" \
   -strftime "%A, %B %d" \
   -face "Helvetica:size=14" &
 
-xclock -digital -twentyfour -update 60 -geometry +40+1225 -render -fg "#3A3A3C" \
-  -strftime "%H:%M" \
-  -face "Helvetica:size=42:weight=bold" &
 
 exec /usr/X11R6/bin/cwm
