@@ -1,6 +1,10 @@
 - hosts: localhost
   gather_facts: false
   tasks:
+    - name: Configure wscons
+      copy:
+        src: config/wscons/wsconsctl.conf
+        dest: /etc/wsconsctl.conf
     - name: Configure Xresources
       copy:
         src: config/X11/xenodm/Xresources
