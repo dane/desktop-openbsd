@@ -20,5 +20,8 @@
         - go
         - rust
         - github-cli
+        - terraform
         - ruby-3.1.2
         - ruby-shims
+    - name: Install bundler
+      command: gem install bundler
