@@ -1,5 +1,8 @@
 export XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_DIRS=~/.config:$XDG_CONFIG_DIRS
+export BUNDLE_USER_HOME=~/.config/bundle
+export BUNDLE_USER_CACHE=~/.local/bundle/cache
+export BUNDLE_USER_PLUGIN=~/.local/bundle/plugin
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
@@ -45,6 +48,7 @@ if [ -f ~/.local/zsh/zshrc ]; then
   source ~/.local/zsh/zshrc
 fi
 
+# Launch a new or attach to an existing tmux session
 if [ -z "$TMUX" ]; then
   tmux list-sessions > /dev/null 2>&1
   if [ $? -eq 0 ]; then
