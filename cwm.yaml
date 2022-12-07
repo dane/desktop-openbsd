@@ -19,6 +19,12 @@
         dest: "/home/{{ lookup('env', 'DOAS_USER') }}/.xsession"
         state: link
         force: true
+    - name: Create Xdefaults symlink
+      file:
+        src: "/home/{{ lookup('env', 'DOAS_USER') }}/.config/X11/Xdefaults"
+        dest: "/home/{{ lookup('env', 'DOAS_USER') }}/.Xdefaults"
+        state: link
+        force: true
     - name: Create cwm symlink
       file:
         src: "/home/{{ lookup('env', 'DOAS_USER') }}/.config/cwm/cwmrc"

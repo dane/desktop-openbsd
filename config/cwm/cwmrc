@@ -4,7 +4,7 @@ unbind-mouse all
 borderwidth 0
 
 # System controls
-bind-key CM-Return /usr/local/bin/alacritty
+bind-key CM-Return xterm
 bind-key CM-q quit
 bind-key CM-r restart
 bind-key CM-l lock
@@ -33,7 +33,7 @@ bind-mouse CM-1 window-resize
 bind-mouse 3 menu-window
 bind-mouse C-1 window-raise
 
-command Alacritty alacritty
+command Xterm xterm
 command Firefox "firefox --setDefaultBrowser"
 command Chromium "chrome --enable-unveil"
 command 1Password "chrome --enable-unveil --app=https://start.1password.com/signin"
