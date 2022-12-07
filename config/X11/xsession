@@ -8,7 +8,7 @@ xclock -digital -twentyfour -update 60 -geometry +40+1227 -render -fg "#3A3A3C" 
   -strftime "%H:%M" \
   -face "Helvetica:size=42:weight=bold" &
 
-xclock -digital -twentyfour -update 3600 -geometry 250x35+40+1200 -render -fg "#3A3A3C" \
+xclock -digital -update 3600 -geometry 255x35+40+1200 -render -fg "#3A3A3C" \
   -strftime "%A, %B %d" \
   -face "Helvetica:size=14" &
 
