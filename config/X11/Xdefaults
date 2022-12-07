@@ -1,0 +1,33 @@
+xterm*faceName: Hack
+xterm*faceSize: 16
+xterm*loginshell: true
+xterm*savelines: 2000
+xterm*foreground: rgb:EE/EE/EE
+xterm*background: rgb:1E/1E/1E
+xterm*color0: rgb:66/66/66
+xterm*internalBorderWidth: 10
+! black
+xterm*color1: rgb:AA/66/66 ! red
+xterm*color2: rgb:66/AA/66 ! green
+xterm*color3: rgb:BF/B0/54 ! olive
+xterm*color4: rgb:66/66/AA ! navy
+xterm*color5: rgb:9B/44/9B ! purple
+xterm*color6: rgb:54/B0/BF ! teal
+xterm*color7: rgb:66/66/66 ! silver
+xterm*color8: rgb:33/33/33 ! grey
+xterm*color9: rgb:AA/66/66 ! red
+xterm*color10: rgb:66/AA/66 ! green
+xterm*color11: rgb:BF/B0/54 ! yellow
+xterm*color12: rgb:66/66/AA ! blue
+xterm*color13: rgb:AA/66/66 ! fuchsia
+xterm*color14: rgb:66/66/AA ! aqua
+xterm*color15: rgb:FF/FF/FF ! white
+
+xterm*rightScrollBar: false
+xterm*ScrollBar: false
+xterm*scrollTtyOutput: false
+
+xterm.vt100.locale: false
+xterm.vt100.utf8: true
+xterm.vt100.geometry: 120x40
+xterm.vt100.internalBorder: 10
