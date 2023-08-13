@@ -4,7 +4,7 @@
     - name: Install packages
       command: pkg_add {{ item }}
       loop:
-        - vim-8.2.4600-no_x11-ruby
+        - vim-9.0.0976-no_x11-ruby
         - curl
         - zsh
         - ImageMagick
