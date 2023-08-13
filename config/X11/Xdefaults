@@ -2,26 +2,7 @@ xterm*faceName: Hack
 xterm*faceSize: 16
 xterm*loginshell: true
 xterm*savelines: 2000
-xterm*foreground: rgb:EE/EE/EE
-xterm*background: rgb:1E/1E/1E
-xterm*color0: rgb:66/66/66
 xterm*internalBorderWidth: 10
-! black
-xterm*color1: rgb:AA/66/66 ! red
-xterm*color2: rgb:66/AA/66 ! green
-xterm*color3: rgb:BF/B0/54 ! olive
-xterm*color4: rgb:66/66/AA ! navy
-xterm*color5: rgb:9B/44/9B ! purple
-xterm*color6: rgb:54/B0/BF ! teal
-xterm*color7: rgb:66/66/66 ! silver
-xterm*color8: rgb:33/33/33 ! grey
-xterm*color9: rgb:AA/66/66 ! red
-xterm*color10: rgb:66/AA/66 ! green
-xterm*color11: rgb:BF/B0/54 ! yellow
-xterm*color12: rgb:66/66/AA ! blue
-xterm*color13: rgb:AA/66/66 ! fuchsia
-xterm*color14: rgb:66/66/AA ! aqua
-xterm*color15: rgb:FF/FF/FF ! white
 
 xterm*rightScrollBar: false
 xterm*ScrollBar: false
@@ -31,3 +12,40 @@ xterm.vt100.locale: false
 xterm.vt100.utf8: true
 xterm.vt100.geometry: 120x40
 xterm.vt100.internalBorder: 10
+
+! special
+*.foreground:   #eeeeee
+*.background:   #1e1e1e
+*.cursorColor:  #eeeeee
+
+! black
+*.color0:       #666666
+*.color8:       #333333
+
+! red
+*.color1:       #aa6666
+*.color9:       #aa6666
+
+! green
+*.color2:       #66aa66
+*.color10:      #66aa66
+
+! yellow
+*.color3:       #bfb054
+*.color11:      #f0c674
+
+! blue
+*.color4:       #6666aa
+*.color12:      #81a2be
+
+! magenta
+*.color5:       #9b449b
+*.color13:      #b294bb
+
+! cyan
+*.color6:       #54b0bf
+*.color14:      #8abeb7
+
+! white
+*.color7:       #666666
+*.color15:      #c5c8c6
