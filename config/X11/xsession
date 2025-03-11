@@ -1,14 +1,16 @@
 setxkbmap -option caps:escape
 
-/usr/local/bin/picom &
+export ENV=$HOME/.kshrc
 
 feh --bg-center /usr/local/share/wallpapers/current.jpg &
 
-xclock -digital -twentyfour -update 60 -geometry +40+1227 -render -fg "#3A3A3C" \
+xclock -render -digital -twentyfour -geometry +40+1227 -update 60 \
+  -fg "#3A3A3C" -bg "#FFFFFF" \
   -strftime "%H:%M" \
   -face "Helvetica:size=42:weight=bold" &
 
-xclock -digital -update 3600 -geometry 255x35+40+1200 -render -fg "#3A3A3C" \
+xclock -render -digital -geometry 255x35+40+1200 -update 3600 \
+  -fg "#3A3A3C" -bg "#FFFFFF" \
   -strftime "%A, %B %d" \
   -face "Helvetica:size=14" &
 
