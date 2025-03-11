@@ -2,25 +2,23 @@
   gather_facts: false
   tasks:
     - name: Install packages
-      command: pkg_add {{ item }}
+      command: pkg_add -D snapshot {{ item }}
       loop:
-        - vim-9.0.0976-no_x11-ruby
+        - vim--no_x11
         - curl
-        - zsh
         - ImageMagick
         - firefox
         - chromium
         - feh
         - ghostwriter
         - hack-fonts
-        - picom
         - git
         - doas
         - go
         - rust
         - github-cli
         - terraform
-        - ruby-3.1.2
+        - ruby-3.4.1p1
         - ruby-shims
     - name: Install bundler
       command: gem install bundler
